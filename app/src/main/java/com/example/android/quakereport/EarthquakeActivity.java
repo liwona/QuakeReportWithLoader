@@ -161,8 +161,8 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
 //        // because this activity implements the LoaderCallbacks interface).
 //        loaderManager.initLoader(EARTHQUAKE_LOADER_ID, null, this).forceLoad();
 
-//        mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
-//        earthquakeListView.setEmptyView(mEmptyStateTextView);
+        mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
+        earthquakeListView.setEmptyView(mEmptyStateTextView);
     }
 
     @Override
