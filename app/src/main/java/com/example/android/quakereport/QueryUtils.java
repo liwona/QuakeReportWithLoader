@@ -38,7 +38,7 @@ public final class QueryUtils {
     public static List<Earthquake> fetchEarthquakeData(String requestUrl) {
         // Create URL object
         URL url = createUrl(requestUrl);
-
+        Log.v("In fetchEartquakeData","before they're returned");
         // Perform HTTP request to the URL and receive a JSON response back
         String jsonResponse = null;
         try {
@@ -154,7 +154,7 @@ public final class QueryUtils {
 
             JSONArray eartquakeArray = baseJsonResponse.getJSONArray("features");
 
-            for (int i=0; i<=eartquakeArray.length(); i++) {
+            for (int i=0; i<=eartquakeArray.length() - 1; i++) {
                 JSONObject currentEarthquake = eartquakeArray.getJSONObject(i);
                 JSONObject properties = currentEarthquake.getJSONObject("properties");
 

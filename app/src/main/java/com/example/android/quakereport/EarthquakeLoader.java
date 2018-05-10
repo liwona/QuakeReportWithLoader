@@ -2,6 +2,7 @@ package com.example.android.quakereport;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
+import android.util.Log;
 
 import java.util.List;
 
@@ -30,6 +31,7 @@ public class EarthquakeLoader extends AsyncTaskLoader<List<Earthquake>> {
 
     @Override
     protected void onStartLoading() {
+        Log.v("In onStartLoading","before forceLoad is called");
         forceLoad();
     }
 
@@ -42,10 +44,12 @@ public class EarthquakeLoader extends AsyncTaskLoader<List<Earthquake>> {
 //            return null;
 //        }
         if (mUrl == null) {
+            Log.v("In loadInBackground","in the loop");
             return null;
         }
-
+        Log.v("In loadInBackground","before data are fetched");
         List<Earthquake> earthquakes = QueryUtils.fetchEarthquakeData(mUrl);
+        Log.v("In loadInBackground","after data are fetched");
         return earthquakes;
     }
 }
